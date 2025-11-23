@@ -18,7 +18,7 @@ INNER JOIN authors on authors.au_id = titleauthor.au_id GROUP BY titleauthor.au_
 
 -- Challenge 3 - Best Selling Authors
 SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", SUM(qty) AS TOTAL
-FROM authors RIGHT JOIN titleauthor ON authors.au_id = titleauthor.au_id
+FROM authors INNER JOIN titleauthor ON authors.au_id = titleauthor.au_id
 INNER JOIN sales ON sales.title_id = titleauthor.title_id GROUP BY authors.au_id, authors.au_lname, authors.au_fname ORDER BY TOTAL DESC LIMIT 3;
 
 -- Challenge 4 - Best Selling Authors Ranking
